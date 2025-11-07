@@ -29,7 +29,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-6132f954-dc1e-4832-8217-d56db2b451b1] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-14cd26a2-1aa6-40dd-83d0-f3e13fd62b06] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -84,6 +84,7 @@ window.addEventListener("load", load);
               <p class="caption" role="heading"><span class="caption-text">Data</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../data/kinds.html">Kinds of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/users-guide.html">User’s Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Standards</span></p>
 <ul class="current">
@@ -99,6 +100,8 @@ window.addEventListener("load", load);
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Us</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/sphinx.html">Sphinx Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/sphinx.html#heading-1">Heading 1</a></li>
 </ul>
 
         </div>
@@ -131,7 +134,7 @@ window.addEventListener("load", load);
 <section id="architecture-diagram">
 <h2>Architecture Diagram<a class="headerlink" href="#architecture-diagram" title="Link to this heading"></a></h2>
 <figure class="align-center" id="id1">
-<pre data-zoom-id="id-6132f954-dc1e-4832-8217-d56db2b451b1" class="mermaid">
+<pre data-zoom-id="id-14cd26a2-1aa6-40dd-83d0-f3e13fd62b06" class="mermaid">
         flowchart TD
     subgraph labcas-net[Docker Network: labcas-net]
         ldap[(LDAP)]
