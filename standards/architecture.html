@@ -1,0 +1,217 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Architecture &mdash; JPL NIST LabCAS  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme-overrides.css?v=6fa68f7b" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+      <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+      <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+const load = async () => {
+    await mermaid.run();
+    const all_mermaids = document.querySelectorAll(".mermaid");
+    const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
+    const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
+    if(mermaids_to_add_zoom > 0) {
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-dfbfeec9-20ea-4345-aed6-1ef8dff7d572] svg");
+        if(all_mermaids.length !== mermaids_processed.length) {
+            // try again in a sec, wait for mermaids to load
+            setTimeout(load, 200);
+            return;
+        } else if(svgs.size() !== mermaids_to_add_zoom) {
+            // try again in a sec, wait for mermaids to load
+            setTimeout(load, 200);
+            return;
+        } else {
+            svgs.each(function() {
+                var svg = d3.select(this);
+                svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+                var inner = svg.select("g");
+                var zoom = d3.zoom().on("zoom", function(event) {
+                    inner.attr("transform", event.transform);
+                });
+                svg.call(zoom);
+            });
+        }
+    }
+};
+
+window.addEventListener("load", load);
+</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="LinkML" href="linkml.html" />
+    <link rel="prev" title="Application Programmers Interface (API)" href="api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            JPL NIST LabCAS
+              <img src="../_static/nist-labcas.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data/kinds.html">Kinds of Data</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Standards</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api.html">Application Programmers Interface (API)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#architecture-diagram">Architecture Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#architecture-details">Architecture Details</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linkml.html">LinkML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Help and Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Us</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/documentation.html">Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">JPL NIST LabCAS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Architecture</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/labcas-nist/labcas-nist.github.io/blob/main/docs/source/standards/architecture.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="architecture">
+<h1>Architecture<a class="headerlink" href="#architecture" title="Link to this heading"></a></h1>
+<p>For more details about the architecture and its use of Docker, see the <a class="reference external" href="https://github.com/Labcas-NIST/labcas-docker/">LabCAS Docker Documentation</a>.</p>
+<section id="architecture-diagram">
+<h2>Architecture Diagram<a class="headerlink" href="#architecture-diagram" title="Link to this heading"></a></h2>
+<figure class="align-center" id="id1">
+<pre data-zoom-id="id-dfbfeec9-20ea-4345-aed6-1ef8dff7d572" class="mermaid">
+        flowchart TD
+    subgraph labcas-net[Docker Network: labcas-net]
+        ldap[(LDAP)]
+        backend[(LabCAS Backend)]
+        ui[(LabCAS UI)]
+        mockauth[(Mock Auth)]
+        proxy[(LabCAS Proxy)]
+        postgres[(Postgres DB)]
+        airflow[(Airflow)]
+        publish[(Publish Service)]
+    end
+
+    %% External Users
+    user[End User] --&gt;|HTTP/HTTPS| proxy
+    proxy --&gt; ui
+    proxy --&gt; backend
+
+    %% Internal Dependencies
+    ui --&gt; backend
+    backend --&gt; ldap
+    mockauth --&gt; backend
+    mockauth --&gt; ui
+    airflow --&gt; backend
+    airflow --&gt; postgres
+    publish --&gt; backend
+
+    %% Volumes
+    backend --- vol1[(labcas-solr-index Volume)]
+    postgres --- vol2[(postgres-data Volume)]
+    </pre><figcaption>
+<p><span class="caption-text">LabCAS Architecture within a Docker Composition</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="architecture-details">
+<h2>Architecture Details<a class="headerlink" href="#architecture-details" title="Link to this heading"></a></h2>
+<p>The LabCAS architecture is composed of the following components:</p>
+<ul class="simple">
+<li><p>LDAP: LDAP is used for authentication and authorization.</p></li>
+<li><p>LabCAS Backend: The LabCAS backend is the core component of the system. It is responsible for the data storage and retrieval.</p></li>
+<li><p>LabCAS UI: The LabCAS UI is the web interface for the system.</p></li>
+<li><p>Mock Auth: Mock Auth is used for authentication and authorization.</p></li>
+<li><p>LabCAS Proxy: The LabCAS proxy is used to route requests to the backend.</p></li>
+<li><p>Postgres: Postgres is used for data storage.</p></li>
+<li><p>Airflow: Airflow is used for workflow management.</p></li>
+<li><p>Publish Service: The Publish Service is used to publish the data to the web.</p></li>
+</ul>
+<p>More TBD.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="api.html" class="btn btn-neutral float-left" title="Application Programmers Interface (API)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="linkml.html" class="btn btn-neutral float-right" title="LinkML" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020–2025 California Institute of Technology.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
