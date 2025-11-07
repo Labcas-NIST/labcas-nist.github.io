@@ -15,7 +15,9 @@ With LinkML you can start small—think lightweight semantic dictionaries for ta
 How LabCAS and NIST Use LinkML
 ------------------------------
 
-TBD.
+LabCAS and NIST use LinkML to describe the data models for the LabCAS system.
+
+See the `Draft LabCAS Schema <linkml>`_ for the full schema description and documentation.
 
 
 Other LinkML Notes

@@ -34,10 +34,13 @@ jobs:
                     curl --silent --location --output /tmp/deploy.sh https://github.com/X1011/git-directory-deploy/raw/master/deploy.sh
                     chmod +x /tmp/deploy.sh
             -
+                name: '🧠 Generate LinkML documentation'
+                run: gen-doc --dialect myst --diagram-type mermaid_class_diagram --directory docs/source/standards/linkml linkml/nist_labcas_linkml.yaml
+            -
                 name: '🖨️ Build the HTML docs from the Sphinx sources'
                 run: sphinx-build --builder html docs/source /tmp/docs
             -
-                name: '🫸 Push the built docs to the repository'
+                name: '🫸 Push the built docs to the repository gh-pages branch'
                 run: /tmp/deploy.sh --allow-empty --message 'Re-publishing docs to website'
                 env:
                     GIT_DEPLOY_DIR: /tmp/docs

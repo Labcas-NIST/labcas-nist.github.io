@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=https://linkml.io/linkml-model/linkml_model/jsonschema/meta.schema.json
+# notes - 
+# > wrap my lines
+---
+id: urn:nist:labcas:schemata:placeholder:1.0.0
+name: Placeholder Draft LabCAS Schema
+title: Placeholder Draft LabCAS Schema
+description: A linkml_schema file for LabCAS data models; but this is a placeholder
+license: Apache 2.0
+see_also:
+  - https://github.com/usnistgov/nist-labcas-linkml
+
+prefixes:
+  linkml_tutorial_2024: https://w3id.org/linkml/linkml-tutorial-2024/
+  linkml: https://w3id.org/linkml/
+  biolink: https://w3id.org/biolink/
+  schema: http://schema.org/
+  PATO: http://purl.obolibrary.org/obo/PATO_
+  example: https://example.org/
+  obo: http://purl.obolibrary.org/obo/
+  ENVO: http://purl.obolibrary.org/obo/ENVO_
+  SIO: http://semanticscience.org/resource/
+  nmdc: https://w3id.org/nmdc/
+  KBase: https://kbase.us/
+default_prefix: NIST_labcas
+default_range: string
+
+imports:
+  - linkml:types
+
+########
+
+classes:
+  NonExistentClass:
+    title: Non Existent Class
+    description: "A non existent class"
