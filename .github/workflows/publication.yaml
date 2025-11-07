@@ -21,7 +21,7 @@ jobs:
                 name: '💳 Checkout repository'
                 uses: actions/checkout@v5
                 with:
-                    token: ${{secrets.GITHUB_DOCS_TOKEN || github.token}}
+                    token: ${{github.token}}
             -
                 name: '🐍 Set up Python 3'
                 uses: actions/setup-python@v6
