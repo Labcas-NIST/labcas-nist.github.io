@@ -1,0 +1,46 @@
+---
+name: 📕 Publication of LabCAS-NIST docs website
+
+on:
+     push:
+         branches:
+             - '**'
+         paths:
+             - 'docs/source/**'
+             - '.github/workflows/*.yaml'
+             - 'requirements.txt'
+
+
+jobs:
+    publication:
+        name: '🕸️ Publication'
+        runs-on: ubuntu-latest
+
+        steps:
+            -
+                name: '💳 Checkout repository'
+                uses: actions/checkout@v5
+                with:
+                    token: ${{secrets.GITHUB_DOCS_TOKEN || github.token}}
+            -
+                name: '🐍 Set up Python 3'
+                uses: actions/setup-python@v6
+                with:
+                    python-version: '3.13'
+            -
+                name: '🧱 Install dependencies'
+                run: |
+                    pip install --quiet --requirement requirements.txt
+                    curl --silent --location --output /tmp/deploy.sh https://github.com/X1011/git-directory-deploy/raw/master/deploy.sh
+                    chmod +x /tmp/deploy.sh
+            -
+                name: '🖨️ Build the HTML docs from the Sphinx sources'
+                run: sphinx-build --builder html docs/source /tmp/docs
+            -
+                name: '🫸 Push the built docs to the repository'
+                run: /tmp/deploy.sh --allow-empty --message 'Re-publishing docs to website'
+                env:
+                    GIT_DEPLOY_DIR: /tmp/docs
+                    GIT_DEPLOY_BRANCH: gh-pages
+                    GIT_DEPLOY_REPO: origin
+...
