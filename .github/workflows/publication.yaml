@@ -4,7 +4,7 @@ name: 📕 Publication of LabCAS-NIST docs website
 on:
      push:
          branches:
-             - '**'
+             - 'main'
          paths:
              - 'docs/source/**'
              - '.github/workflows/*.yaml'
