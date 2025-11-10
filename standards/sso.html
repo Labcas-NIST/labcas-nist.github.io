@@ -1,0 +1,156 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mock vs Real Single-Sign On &mdash; JPL NIST LabCAS  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme-overrides.css?v=6fa68f7b" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contact Us" href="../support/contact.html" />
+    <link rel="prev" title="LinkML" href="linkml.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            JPL NIST LabCAS
+              <img src="../_static/nist-labcas.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data/kinds.html">Kinds of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/users-guide.html">User’s Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Standards</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api.html">Application Programmers Interface (API)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linkml.html">LinkML</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Mock vs Real Single-Sign On</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mock-sso">Mock SSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#actual-sso">Actual SSO</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Help and Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Us</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/sphinx.html">Sphinx Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/sphinx.html#heading-1">Heading 1</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">JPL NIST LabCAS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Mock vs Real Single-Sign On</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/labcas-nist/labcas-nist.github.io/blob/main/docs/source/standards/sso.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mock-vs-real-single-sign-on">
+<h1>Mock vs Real Single-Sign On<a class="headerlink" href="#mock-vs-real-single-sign-on" title="Link to this heading"></a></h1>
+<p>This document describes the differences between the single-sign on (SSO) solution for the <a class="reference external" href="https://github.com/jpl-labcas">Laboratory Catalog and Archive System</a> for the <a class="reference external" href="https://labcas-nist.github.io/">National Institutes of Standards and Technology</a>.</p>
+<section id="mock-sso">
+<h2>Mock SSO<a class="headerlink" href="#mock-sso" title="Link to this heading"></a></h2>
+<p>The mock SSO solution for NIST LabCAS uses the <code class="docutils literal notranslate"><span class="pre">mock-auth</span></code> service to simulate an SSO solution by acting as a sample identity provider.</p>
+<p>The <a class="reference external" href="https://github.com/Labcas-NIST/labcas-docker/tree/master/mock-auth">service</a> is launched from the <a class="reference external" href="https://github.com/Labcas-NIST/labcas-docker/blob/5678ac464a7c15b82426002046523267f030133b/docker-compose.yml#L68">docker-compose.yml</a> file in the <a class="reference external" href="https://github.com/Labcas-NIST/labcas-docker">labcas-docker</a> repository. The <a class="reference external" href="https://github.com/Labcas-NIST/labcas-docker/tree/master/mock-auth">service</a> is implemented as a <a class="reference external" href="https://nodejs.org/">Node</a> application that listens on TCP port 3001 and responds to authentication requests over HTTP and returns a fixed <a class="reference external" href="https://jwt.io/">JWT</a> response token with the following hard-coded fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">userId</span></code>: <code class="docutils literal notranslate"><span class="pre">testUser</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">userEmail</span></code>: <code class="docutils literal notranslate"><span class="pre">user&#64;example.com</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">userName</span></code>: <code class="docutils literal notranslate"><span class="pre">Test</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">userLastName</span></code>: <code class="docutils literal notranslate"><span class="pre">User</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">winId</span></code>: <code class="docutils literal notranslate"><span class="pre">test1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Group</span></code>: <code class="docutils literal notranslate"><span class="pre">Mock</span> <span class="pre">Auth</span> <span class="pre">Group</span></code></p></li>
+</ul>
+<p>The token is always named <code class="docutils literal notranslate"><span class="pre">dummy-jwt-token-value</span></code> and is returned on request to <code class="docutils literal notranslate"><span class="pre">/sso/saml/login</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The backend will not accept the <code class="docutils literal notranslate"><span class="pre">dummy-jwt-token-value</span></code> as valid unless it’s started with the <code class="docutils literal notranslate"><span class="pre">ACCEPT_ANY_JWT</span></code> environment variable set to the word <code class="docutils literal notranslate"><span class="pre">DANGEROUS</span></code>. This is a reminder that the mock SSO solution is not secure as it authenticates any and every user as valied and returns the <code class="docutils literal notranslate"><span class="pre">dummy-jwt-token-value</span></code> JWT for all users.</p>
+</div>
+</section>
+<section id="actual-sso">
+<h2>Actual SSO<a class="headerlink" href="#actual-sso" title="Link to this heading"></a></h2>
+<p>The actual SSO solution for NIST LabCAS is yet to be determined. NIST runs a large user database and has an identity provider whose details are not yet known. What is known is that this SSO solution will provided JWT tokens with non-mock values (such as those listed above), and will be cryptographically signed by a private key. The only fields in the token that are guaranteed to be present are <code class="docutils literal notranslate"><span class="pre">userId</span></code> and <code class="docutils literal notranslate"><span class="pre">userEmail</span></code>.</p>
+<p>Once the LabCAS user interface receives its redirection from the NIST SSO login screen, it is also given the signed JWT. The JWT can then be passed to the backend, which will use it to determine the user’s identity and permissions. Note that NIST SSO does not indicate group membership, so the backend will use LDAP at <code class="docutils literal notranslate"><span class="pre">ldaps://edrn-ds.jpl.nasa.gov</span></code> to look up group memberships for the user ID (using the <code class="docutils literal notranslate"><span class="pre">userId</span></code> field from the JWT)and use that information to check and enforcepermissions.</p>
+<p>Administrators can manage group memberships using <a class="reference external" href="https://edrn-labcas.jpl.nasa.gov/biokey/nist/">Biokey</a>, a convenient web application for interacting with the LDAP server used by LabCAS (and used for group memberships only—although currently it is also used for users, as integration with the actual NIST SSO is ongoing).</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="linkml.html" class="btn btn-neutral float-left" title="LinkML" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../support/contact.html" class="btn btn-neutral float-right" title="Contact Us" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020–2025 California Institute of Technology.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
