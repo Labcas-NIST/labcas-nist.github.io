@@ -3,7 +3,7 @@
 # > wrap my lines
 ---
 id: urn:nist:labcas:schemata:placeholder:1.0.0
-name: Placeholder Draft LabCAS Schema
+name: placeholder_labcas_schema
 title: Placeholder Draft LabCAS Schema
 description: A linkml_schema file for LabCAS data models; but this is a placeholder
 license: Apache 2.0
