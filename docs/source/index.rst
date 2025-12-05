@@ -29,6 +29,16 @@ Site Map
 
     /support/*
 
+For Administrators
+------------------
+
+* :doc:`Admin Users Guide for NIST LabCAS <admin/guide>`
+
+..  toctree::
+    :hidden:
+
+    admin/guide
+
 
 .. References:
 .. _`Laboratory and Catalog Archive System`: https://github.com/jpl-labcas

@@ -20,6 +20,7 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinx.ext.autosummary',
     'sphinxcontrib.mermaid',
+    'myst_parser',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
