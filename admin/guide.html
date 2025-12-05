@@ -1,0 +1,540 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Users Guide for NIST LabCAS &mdash; JPL NIST LabCAS  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme-overrides.css?v=6fa68f7b" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Sphinx Documentation" href="../support/sphinx.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            JPL NIST LabCAS
+              <img src="../_static/nist-labcas.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data/kinds.html">Kinds of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/users-guide.html">User’s Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Standards</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../standards/api.html">Application Programmers Interface (API)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../standards/architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../standards/community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../standards/linkml.html">LinkML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../standards/sso.html">Mock vs Real Single-Sign On</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Help and Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/contact.html">Contact Us</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/sphinx.html">Sphinx Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/sphinx.html#heading-1">Heading 1</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Admin Users Guide for NIST LabCAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#overview">0. Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-this-guide-is">0.1 What this guide is</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-this-guide-covers">0.2 What this guide covers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#roles-and-responsibilities">0.3 Roles and responsibilities.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">0.4 Prerequisites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#collections-datasets-and-files">1. Collections, Datasets and Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-a-collection">1.1 What is a collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-a-dataset">1.2 What is a dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prepare-collection-level-metadata">1.3 Prepare collection-level metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#publish-a-collection">1.4 Publish a collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-dataset">1.5 Create a dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-files-and-file-level-metadata">1.6 Add files and file-level metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#publishing-file-level-metadata-and-files-to-labcas">1.7 Publishing File Level Metadata and Files to LabCAS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#editing-and-bulk-updates">2.0 Editing and bulk updates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#edit-existing-metadata">2.1 Edit existing metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bulk-updates-csv-scripts">2.2 Bulk updates (CSV/scripts)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#validation-checks">2.3 Validation checks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ui-configuration">3.0 UI configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#virtual-hierarchy-facet">3.1 Virtual hierarchy (facet)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#collection-display-options-top-level-pinned-files-highlights">3.2 Collection display options (top level/pinned files, highlights)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-behaviors-show-files-at-top-highlight-styles">3.3 List behaviors (show files at top, highlight styles)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#approving-users-access-management">4.0 Approving Users (access management)</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">JPL NIST LabCAS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Admin Users Guide for NIST LabCAS</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/labcas-nist/labcas-nist.github.io/blob/main/docs/source/admin/guide.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="admin-users-guide-for-nist-labcas">
+<h1>Admin Users Guide for NIST LabCAS<a class="headerlink" href="#admin-users-guide-for-nist-labcas" title="Link to this heading"></a></h1>
+<p>This guide provides instructions for users with administrator privileges on how to administer the NIST LabCAS system.It covers in-system administration and describes how admin users coordinate with back-end operations (e.g., ingest, bulk updates) handled by the LabCAS operations team.</p>
+</section>
+<section id="table-of-contents">
+<h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading"></a></h1>
+<ol class="arabic simple" start="0">
+<li><p>Overview<br />
+0.1 What this guide is<br />
+0.2 What this guide covers<br />
+0.3 Roles and responsibilities<br />
+0.4 Prerequisites</p></li>
+<li><p>Collections, datasets and files<br />
+1.1 What is a collection<br />
+1.2 What is a dataset<br />
+1.3 Prepare collection-level metadata<br />
+1.4 Publish a collection<br />
+1.5 Create a dataset<br />
+1.6 Add files and file-level metadata<br />
+1.7 Publishing File Level Metadata and Files</p></li>
+<li><p>Editing and bulk updates<br />
+2.1 Edit existing metadata<br />
+2.2 Bulk updates (CSV/scripts)<br />
+2.3 Validation checks</p></li>
+<li><p>UI configuration<br />
+3.1 Virtual hierarchy (facet)<br />
+3.2 Collection display options (top level/pinned files, highlights)<br />
+3.3 List behaviors (show files at top, highlight styles)</p></li>
+<li><p>Access management<br />
+4.1 Approving users (access management)<br />
+4.2 Assign groups and permissions<br />
+4.3 Manage users and groups</p></li>
+<li><p>Quality checks and troubleshooting — David/Heather<br />
+7.1 Pre-publish checklist<br />
+7.2 Post-publish validation (spot checks, counts)<br />
+7.3 Common issues and fixes</p></li>
+</ol>
+</section>
+<section id="overview">
+<h1>0. Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h1>
+<p>LabCAS is a platform for building and operating a data commons. It provides:</p>
+<ul class="simple">
+<li><p>Secure, reliable capture, processing, management, search, and analysis of scientific data</p></li>
+<li><p>Plug-in analytical methods and tools</p></li>
+<li><p>Repeatable data-processing pipelines</p></li>
+<li><p>Integration with visualization and external analytics</p></li>
+<li><p>Data delivery to and from participating sites</p></li>
+</ul>
+<p>Data and metadata in LabCAS</p>
+<p>LabCAS uses data models and metadata to capture information consistently across the NIST Data Commons. Metadata can be added over time and linked across tools, yielding a consistent data architecture.</p>
+<p>Data are organized hierarchically: collections at the top level, datasets within collections, and files within datasets. Collections group data logically (e.g., a consortium). Datasets further organize content (e.g., participant submissions in an inter-laboratory study or a standardized, analysis-ready release that harmonizes data from all participants). Files are the most granular components and can exist at either the collection or dataset level.</p>
+<p><img alt="Collection Dataset and File Drawing" src="../_images/collection_dataset_file.png" /></p>
+<p>Collections for NIST are organized primarily by NIST BBD Core Capabilities. Collections that are currently being piloted include:</p>
+<ul class="simple">
+<li><p>NIST Flow Cytometry Standards Consortium</p></li>
+<li><p>NIST Genome Editing Consortium</p></li>
+<li><p>Cell Line Provenance</p></li>
+<li><p>Microbial Metrology</p></li>
+</ul>
+<section id="what-this-guide-is">
+<h2>0.1 What this guide is<a class="headerlink" href="#what-this-guide-is" title="Link to this heading"></a></h2>
+<p>This guide is for LabCAS administrators at NIST BBD who create and manage collections, datasets, files, and access. It focuses on admin workflows that keep the data commons organized, searchable, and secure.</p>
+</section>
+<section id="what-this-guide-covers">
+<h2>0.2 What this guide covers<a class="headerlink" href="#what-this-guide-covers" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Creating collections and datasets</p></li>
+<li><p>Preparing and publishing collection/dataset/file metadata</p></li>
+<li><p>Adding, updating, and replacing files</p></li>
+<li><p>Configuring the UI (virtual hierarchy/facets, highlighted and pinned files)</p></li>
+<li><p>Editing metadata, including via bulk updates</p></li>
+<li><p>Approving users and managing groups/permissions</p></li>
+<li><p>Basic checks and troubleshooting after publish</p></li>
+</ul>
+</section>
+<section id="roles-and-responsibilities">
+<h2>0.3 Roles and responsibilities.<a class="headerlink" href="#roles-and-responsibilities" title="Link to this heading"></a></h2>
+<p>Admin/Curator:</p>
+<ul class="simple">
+<li><p>Creates collections and datasets</p></li>
+<li><p>Prepares and publishes metadata and files</p></li>
+<li><p>Configures UI (facets, display options)</p></li>
+<li><p>Runs basic validation checks</p></li>
+<li><p>Manages user access within the project scope</p></li>
+</ul>
+</section>
+<section id="prerequisites">
+<h2>0.4 Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<p>Accounts and permissions</p>
+<ul class="simple">
+<li><p>Active LabCAS account with super-user privileges for access to all collections</p></li>
+<li><p>Active LDAP account to approve and manage users and groups</p></li>
+</ul>
+<p>Metadata and files</p>
+<ul class="simple">
+<li><p>Latest metadata templates for collection/dataset/file levels</p></li>
+<li><p>Access to shared storage or upload location used by your project</p></li>
+</ul>
+<p>LabCAS UI Config Files and Scripts</p>
+<ul class="simple">
+<li><p>Facet configs for the virtual hierarchy for each collection</p></li>
+<li><p>Metadata schemas for each dataset</p></li>
+<li><p>Bulk update scripts or CSV import tools if your team uses them</p></li>
+</ul>
+</section>
+</section>
+<section id="collections-datasets-and-files">
+<h1>1. Collections, Datasets and Files<a class="headerlink" href="#collections-datasets-and-files" title="Link to this heading"></a></h1>
+<section id="what-is-a-collection">
+<h2>1.1 What is a collection<a class="headerlink" href="#what-is-a-collection" title="Link to this heading"></a></h2>
+<p>A collection captures the highest-level information about a body of data. It can describe multiple datasets and should be planned thoughtfully so data are grouped logically in LabCAS.</p>
+<p>Create a new collection when:</p>
+<ul class="simple">
+<li><p>The data represent a distinct program, consortium, project, or study family.</p></li>
+<li><p>Governance, access groups, or long-term ownership differ from existing collections.</p></li>
+<li><p>The metadata you need at the top level are materially different from existing collections.</p></li>
+</ul>
+<p>Before creating a new collection, ask:</p>
+<ul class="simple">
+<li><p>Is this already covered by an existing collection?</p></li>
+<li><p>Could this be captured as a dataset under an existing collection?</p></li>
+</ul>
+</section>
+<section id="what-is-a-dataset">
+<h2>1.2 What is a dataset<a class="headerlink" href="#what-is-a-dataset" title="Link to this heading"></a></h2>
+<p>A dataset provides the secondary grouping within a collection and applies to all files it contains.</p>
+<p>Data can be organized into datasets for various purposes, including:</p>
+<ul class="simple">
+<li><p>Participant submissions within a study</p></li>
+<li><p>A standardized, analysis-ready release that harmonizes contributions</p></li>
+<li><p>A specific versioned release or data slice tied to a publication or milestone</p></li>
+</ul>
+</section>
+<section id="prepare-collection-level-metadata">
+<h2>1.3 Prepare collection-level metadata<a class="headerlink" href="#prepare-collection-level-metadata" title="Link to this heading"></a></h2>
+<p>Step 1: Open the <a class="reference external" href="https://docs.google.com/spreadsheets/d/1QDA-DApGKt5t2tOEfY5oJ2pNO0t0_EPWQhvuVUNYrWQ/edit?userstoinvite=hkincaid%40jpl.caltech.edu&amp;amp;sharingaction=manageaccess&amp;amp;role=writer&amp;amp;gid=0#gid=0">Core Collection Metadata Sheet</a>.<br />
+Step 2: Create a Google Sheet with a single row for the new collection.<br />
+Step 3: Enter collection details, completing all required fields and using permissible values where provided.</p>
+<ul>
+<li><p>Assign permissions in OwnerPrincipal using LDAP group DNs. For multiple groups, separate with a vertical bar  “|”, for example: groupA|groupB|groupC.</p>
+<p>Step 4: Share the sheet with the JPL IC team to generate the Collection-level file .cfg file.</p>
+<p>LDAP groups and OwnerPrincipal metadata</p>
+<p>Access to LabCAS Collections, Datasets, and Files is controlled by the OwnerPrincipal metadata field. OwnerPrincipal stores one or more LDAP groups (for example, cn=A, cn=B), and access is determined by group membership.</p>
+<p>Key points:</p>
+<p>Collection-level access is required</p>
+</li>
+<li><p>A user must belong to at least one LDAP group listed in the collection’s OwnerPrincipal to see that collection at all.</p></li>
+<li><p>If the user cannot see the collection, they also cannot see any datasets or files inside it, regardless of their group membership at lower levels.</p>
+<p>Dataset-level access further restricts visibility</p>
+</li>
+<li><p>Within a collection, a dataset may have its own OwnerPrincipal value.</p></li>
+<li><p>To see a dataset, a user must:</p>
+<ul class="simple">
+<li><p>Have access to the parent collection, and</p></li>
+<li><p>Belong to at least one LDAP group listed in the dataset’s OwnerPrincipal (if defined).</p></li>
+</ul>
+<p>File-level access (optional)</p>
+</li>
+<li><p>In most cases, files inherit visibility from their parent dataset.</p></li>
+<li><p>If file-level OwnerPrincipal values are used, a user must:</p>
+<ul class="simple">
+<li><p>Have access to the parent collection, and</p></li>
+<li><p>Have access to the parent dataset, and</p></li>
+<li><p>Belong to at least one LDAP group listed in the file’s OwnerPrincipal.</p></li>
+</ul>
+<p>Super User group</p>
+</li>
+<li><p>Members of a designated Super User LDAP group have administrative access and can see all Collections, Datasets, and Files, regardless of OwnerPrincipal settings.<br />
+.</p></li>
+</ul>
+</section>
+<section id="publish-a-collection">
+<h2>1.4 Publish a collection<a class="headerlink" href="#publish-a-collection" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Verify the collection appears in the UI.</p></li>
+<li><p>Confirm title, description, and key metadata fields.</p></li>
+<li><p>Confirm access (OwnerPrincipal) is correct.</p></li>
+<li><p>Confirm initial facets and display behavior as expected.</p></li>
+</ul>
+</section>
+<section id="create-a-dataset">
+<h2>1.5 Create a dataset<a class="headerlink" href="#create-a-dataset" title="Link to this heading"></a></h2>
+<p>Confirm the dataset belongs under the target collection.</p>
+<p>Step 1: Open the <a class="reference external" href="https://docs.google.com/spreadsheets/d/1QDA-DApGKt5t2tOEfY5oJ2pNO0t0_EPWQhvuVUNYrWQ/edit?userstoinvite=hkincaid%40jpl.caltech.edu&amp;amp;sharingaction=manageaccess&amp;amp;role=writer&amp;amp;gid=837312808#gid=837312808">Core Dataset Metadata Sheet</a>.<br />
+Step 2: In the same Google Sheet used for the collection metadata, create a new tab for the dataset.<br />
+Step 3: On a single row within that tab enter dataset metadata, provide all required fields and permissible values where provided.<br />
+Step 4: If needed, assign permissions in OwnerPrincipal using LDAP group DNs. Otherwise, permissions are inherited from the collection if omitted.</p>
+<ul class="simple">
+<li><p>Public collections: set OwnerPrincipal to DN=All.</p></li>
+<li><p>Multiple groups: separate with a vertical bar “|”, e.g., groupA|groupB|groupC.<br />
+Step 5: Share with JPL IC to generate the DatasetLevel .cfg, then publish.</p></li>
+</ul>
+</section>
+<section id="add-files-and-file-level-metadata">
+<h2>1.6 Add files and file-level metadata<a class="headerlink" href="#add-files-and-file-level-metadata" title="Link to this heading"></a></h2>
+<p>Step 1: Stage files on Globus.<br />
+Step 2: Provide file-level metadata (CSV or template) as required for your collection. This must include the <a class="reference external" href="https://docs.google.com/spreadsheets/d/1QDA-DApGKt5t2tOEfY5oJ2pNO0t0_EPWQhvuVUNYrWQ/edit?userstoinvite=hkincaid%40jpl.caltech.edu&amp;amp;sharingaction=manageaccess&amp;amp;role=writer&amp;amp;gid=604377651#gid=604377651">Core File-level metadata</a> and any other Extensions in the <a class="reference external" href="https://docs.google.com/spreadsheets/d/1QDA-DApGKt5t2tOEfY5oJ2pNO0t0_EPWQhvuVUNYrWQ/edit?userstoinvite=hkincaid%40jpl.caltech.edu&amp;amp;sharingaction=manageaccess&amp;amp;role=writer&amp;amp;gid=906699802#gid=906699802">NIST Data Model</a> that apply to your data files.</p>
+<ul>
+<li><p>To include collection-level files, highlight files, or have a file appear at the top of the file list, complete the appropriate metadata tags in the Core File:</p>
+<ul class="simple">
+<li><p>Highlight = True</p></li>
+<li><p>PriorityRanking = Top</p></li>
+<li><p>CollectionLevelFileHierarchy = <code class="docutils literal notranslate"><span class="pre">[CollectionName]</span></code>+/+SubFolderName</p></li>
+</ul>
+<p>Step 3: Notify JPL IC when files and metadata are ready for ingest</p>
+<p>Step 4: Publish files.</p>
+<p>Step 5: Verify counts and spot-check metadata and files.</p>
+</li>
+</ul>
+</section>
+<section id="publishing-file-level-metadata-and-files-to-labcas">
+<h2>1.7 Publishing File Level Metadata and Files to LabCAS<a class="headerlink" href="#publishing-file-level-metadata-and-files-to-labcas" title="Link to this heading"></a></h2>
+<p>Important: Uploading/ingesting new files and file‑level metadata is not performed through this UI. Those operations are handled by the LabCAS back‑end ingest process.</p>
+<ul class="simple">
+<li><p>Prepare your metadata (CSV or JSON) and file paths.</p></li>
+<li><p>Coordinate with the back‑end operator to ingest.</p></li>
+<li><p>After ingest, use the UI checks above to verify publishing (counts, spot checks, hierarchies, and viewers).</p></li>
+</ul>
+</section>
+<section id="editing-and-bulk-updates">
+<h2>2.0 Editing and bulk updates<a class="headerlink" href="#editing-and-bulk-updates" title="Link to this heading"></a></h2>
+<section id="edit-existing-metadata">
+<h3>2.1 Edit existing metadata<a class="headerlink" href="#edit-existing-metadata" title="Link to this heading"></a></h3>
+<p>Core collection/dataset/file metadata is read‑only in the general UI. There is no generic metadata editor in the collection/dataset/file detail pages.</p>
+<p>The “ML Output Viewer” (menu item) provides an editor for specific ML job outputs only:</p>
+<ul class="simple">
+<li><p>Open ML Job Status, then an output in the viewer.</p></li>
+<li><p>Click “Edit Mode”, change cell values, optionally select a validation schema.</p></li>
+<li><p>Click “Save”, then “Publish” to submit changes to the configured JSON output endpoint.</p></li>
+</ul>
+<p>Note: This does not edit the core Solr file records; it edits the ML output document.</p>
+<p>For corrections to core file/dataset/collection metadata, reach out to admin team for bulk updates via the back‑end ingest process.</p>
+</section>
+<section id="bulk-updates-csv-scripts">
+<h3>2.2 Bulk updates (CSV/scripts)<a class="headerlink" href="#bulk-updates-csv-scripts" title="Link to this heading"></a></h3>
+<p>Bulk updates are executed by back‑end tools, but the UI helps you prepare and verify data.</p>
+<ul class="simple">
+<li><p>Export what’s there:</p>
+<ul>
+<li><p>Single file: open the file page and click “Download Metadata”.</p></li>
+<li><p>Many files: build a virtual hierarchy node (section 3.1) and click “Download Metadata” at that node to export a CSV of all matching files.</p></li>
+</ul>
+</li>
+<li><p>Edit offline:</p>
+<ul>
+<li><p>In a spreadsheet, retaining the id column for each file (that is the unique key).</p></li>
+</ul>
+</li>
+<li><p>Submit updates for ingest:</p>
+<ul>
+<li><p>Provide the CSV to your LabCAS admin for an update run. The UI does not upload metadata.</p></li>
+</ul>
+</li>
+<li><p>Re‑verify in the UI after ingest:</p>
+<ul>
+<li><p>filter/search, reopen file pages, and/or re‑export a CSV to confirm changes.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="validation-checks">
+<h3>2.3 Validation checks<a class="headerlink" href="#validation-checks" title="Link to this heading"></a></h3>
+<p>In‑UI validation support exists in the ML Output Viewer and general sanity checks elsewhere.</p>
+<p>ML Output Viewer validation:</p>
+<ul class="simple">
+<li><p>From the ML Output Menu Item click a job.</p></li>
+<li><p>Toggle “Edit Mode” and choose a validation schema (e.g., ML Output, Flow Cytometry, Genomics).</p></li>
+<li><p>The table highlights invalid cells (red with <code class="docutils literal notranslate"><span class="pre">!</span></code>). Hover or click to see rule details (required fields, allowed values, patterns, max length, numeric checks).</p></li>
+<li><p>Fix values, re‑validate, then “Save” and “Publish” if needed.</p></li>
+</ul>
+</section>
+</section>
+<section id="ui-configuration">
+<h2>3.0 UI configuration<a class="headerlink" href="#ui-configuration" title="Link to this heading"></a></h2>
+<p>The UI reads assets/conf/environment.cfg on login (check github readme). See docs/environment_config_reference.md for a full key reference. The most relevant areas are summarized below.</p>
+<section id="virtual-hierarchy-facet">
+<h3>3.1 Virtual hierarchy (facet)<a class="headerlink" href="#virtual-hierarchy-facet" title="Link to this heading"></a></h3>
+<p>How to use (see the User Guide for more details):</p>
+<ul class="simple">
+<li><p>On a collection or dataset page, use “Build your own hierarchy”. Choose one or more fields (tags) to form a tree (e.g., Cohort, then Gender, then FileType).</p></li>
+<li><p>Use “Expand All” to open/close the entire tree.</p></li>
+<li><p>Click a node to view its files.</p></li>
+<li><p>Use node‑level “Download” or “Download Metadata”.</p></li>
+<li><p>Your chosen tags persist per collection in your browser.</p></li>
+</ul>
+<p>What determines available fields:</p>
+<ul class="simple">
+<li><p>The available hierarchy facets are gathered from file facet counts.</p></li>
+<li><p>Changing that list requires a code update in environment.cfg (refer to github assets/conf/environment.cfg) and deployment.</p></li>
+</ul>
+</section>
+<section id="collection-display-options-top-level-pinned-files-highlights">
+<h3>3.2 Collection display options (top level/pinned files, highlights)<a class="headerlink" href="#collection-display-options-top-level-pinned-files-highlights" title="Link to this heading"></a></h3>
+<p>Configure in assets/conf/environment.cfg:</p>
+<ul class="simple">
+<li><p>collection_header_order: Controls which collection fields show and their order on the collection page.</p></li>
+<li><p>collection_header_hide: Hides specific fields on the collection page.</p></li>
+<li><p>collapsible_headers: Long fields render collapsed with a “More/Less” toggle.</p></li>
+<li><p>collection_id_append: Appends the ID next to a field’s value.</p></li>
+<li><p>collection_header_extend_<CollectionId> / dataset_header_extend_<CollectionId>: Adds extra fields for a specific collection.</p></li>
+<li><p>metadata_table_collection_mapping: Enables the “Schema Metadata” section tabs for specific collections.</p></li>
+<li><p>Favorites (pinned):</p>
+<ul>
+<li><p>Star buttons are shown when favorites_enabled is true (default). Clicking the star toggles a per‑user favorite; favored items render with a green star.</p></li>
+</ul>
+</li>
+<li><p>Top‑level “Collection Level Files”:</p>
+<ul>
+<li><p>Shown automatically when a collection has files that belong at the collection level; hidden when none exist.</p></li>
+</ul>
+</li>
+</ul>
+<p>Image/Viewer‑related options:</p>
+<ul class="simple">
+<li><p>image_viewer_enabled_collections: Enables image viewer actions for listed collections (OHIF/DSA/standard image viewers).</p></li>
+<li><p>dataset_image_hide: Suppress images for specific dataset patterns if needed.</p></li>
+</ul>
+</section>
+<section id="list-behaviors-show-files-at-top-highlight-styles">
+<h3>3.3 List behaviors (show files at top, highlight styles)<a class="headerlink" href="#list-behaviors-show-files-at-top-highlight-styles" title="Link to this heading"></a></h3>
+<p>Ordering and pagination:</p>
+<ul class="simple">
+<li><p>Files are listed alphabetically by FileName; datasets by DatasetName. Lists paginate (10 per page) with controls at top/bottom.</p></li>
+<li><p>“All” checkboxes select entire pages.</p></li>
+</ul>
+<p>Virtual hierarchy table:</p>
+<ul class="simple">
+<li><p>Tree nodes have expand/collapse, “Download”, “Download Metadata”, and image‑viewer actions where applicable.</p></li>
+</ul>
+<p>Highlights/visual cues:</p>
+<ul class="simple">
+<li><p>Favorites (star) turn green when selected.</p></li>
+<li><p>Long text fields show a “More/Less” toggle per collapsible_headers.</p></li>
+<li><p>Image files display thumbnails automatically when ThumbnailRelativePath exists; DICOM and whole‑slide formats show viewer options.</p></li>
+</ul>
+</section>
+</section>
+<section id="approving-users-access-management">
+<h2>4.0 Approving Users (access management)<a class="headerlink" href="#approving-users-access-management" title="Link to this heading"></a></h2>
+<p>The LabCAS Password Manager (BioKey), built on Wagtail, allows NIST administrators to manage user accounts and control access to LabCAS collections, datasets, and files.</p>
+<p>End users can use BioKey to:</p>
+<ul class="simple">
+<li><p>Request access to NIST LabCAS collections (see Users Guide)</p></li>
+<li><p>Change their password</p></li>
+<li><p>Reset a forgotten password</p></li>
+</ul>
+<p><img alt="Biokey Home" src="../_images/biokey.png" /></p>
+<p>4.1 Accessing the NIST Password Manager<br />
+URL: <a class="reference external" href="https://edrn-labcas.jpl.nasa.gov/biokey/nist/">https://edrn-labcas.jpl.nasa.gov/biokey/nist/</a></p>
+<p>To manage NIST LabCAS users, you must have an LDAP login assigned to the EDRN LDAP group. If you do not have an account, you can request one from <a class="reference external" href="mailto:edrn-ic&#37;&#52;&#48;jpl&#46;nasa&#46;gov">JPL IC</a>.</p>
+<p>To open the management interface:</p>
+<ul class="simple">
+<li><p>Go to the above URL</p></li>
+<li><p>Click on the “<a class="reference external" href="https://edrn-labcas.jpl.nasa.gov/biokey/_util/login/?next=/biokey/nist/sign-up/">Oversight</a>” link in the lower left corner</p></li>
+<li><p>Login with your LDAP credentials</p></li>
+<li><p>The “Manage Directory” block will appear.</p></li>
+</ul>
+<p>4.2 Review Pending Approval</p>
+<p>When a user requests an account, you will receive an email notification.</p>
+<p>To review and act on the request:</p>
+<ul class="simple">
+<li><p>Click on the link in the email notification, or</p></li>
+<li><p>Click on the “Manage Directory” in Biokey.</p></li>
+</ul>
+<p>Then, inspect the user’s registration details and choose one of the following actions:</p>
+<ul class="simple">
+<li><p>Approve – Notifies the user by email and assigns them to the groups they requested.</p></li>
+<li><p>Reject – Deletes the request and notifies the user by email.</p></li>
+<li><p>Delete – Deletes the request without notifying the user.</p></li>
+</ul>
+<p>4.3 Manage Users and Groups</p>
+<p>From the Manage Directory screen:</p>
+<ul class="simple">
+<li><p>Click “Users” to view or delete individual user accounts.</p></li>
+<li><p>Click “Groups” to:</p>
+<ul>
+<li><p>View all users in a group</p></li>
+<li><p>Add users to a group</p></li>
+<li><p>Remove users from a group</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../support/sphinx.html" class="btn btn-neutral float-left" title="Sphinx Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020–2025 California Institute of Technology.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

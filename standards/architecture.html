@@ -29,7 +29,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-b72fe4f8-c6ff-4550-a8d7-2cf202dc9cae] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-22cd5f43-2c8d-48b6-9e5d-c27e82e0953a] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -105,6 +105,12 @@ window.addEventListener("load", load);
 <li class="toctree-l1"><a class="reference internal" href="../support/sphinx.html">Sphinx Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/sphinx.html#heading-1">Heading 1</a></li>
 </ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../admin/guide.html">Admin Users Guide for NIST LabCAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../admin/guide.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../admin/guide.html#overview">0. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../admin/guide.html#collections-datasets-and-files">1. Collections, Datasets and Files</a></li>
+</ul>
 
         </div>
       </div>
@@ -136,7 +142,7 @@ window.addEventListener("load", load);
 <section id="architecture-diagram">
 <h2>Architecture Diagram<a class="headerlink" href="#architecture-diagram" title="Link to this heading"></a></h2>
 <figure class="align-center" id="id1">
-<pre data-zoom-id="id-b72fe4f8-c6ff-4550-a8d7-2cf202dc9cae" class="mermaid">
+<pre data-zoom-id="id-22cd5f43-2c8d-48b6-9e5d-c27e82e0953a" class="mermaid">
         flowchart TD
     subgraph labcas-net[Docker Network: labcas-net]
         ldap[(LDAP)]
